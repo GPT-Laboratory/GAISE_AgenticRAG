@@ -1,0 +1,59 @@
+SAMPLE QUESTIONS FOR THE LAKE PYHÄJÄRVI AGENTIC RAG ASSISTANT
+=============================================================
+This file lists example questions the assistant can answer from the project's data. It shows what the system can do and how the different data sources fit together. Questions are grouped from simple one-source questions to more complex questions that combine several sources.
+
+DATA SOURCES
+------------
+- Catch statistics : fish catch in kilograms, by year and species (2010-2024)
+- Luke economics   : commercial quantity, value and unit price (used to value the catch)
+- Water quality    : chlorophyll, nitrogen, phosphorus and temperature, by depth
+- Methodology      : definitions, assumptions and how the figures are calculated
+
+1. CATCH STATISTICS ONLY
+------------------------
+Answered from the fish-catch table alone.
+1.1  What fish species are included in the catch statistics?
+1.2  How has the total catch of Lake Pyhäjärvi developed over time?
+1.3  What are the most important catch species?
+1.4  Is there a relationship between vendace (muikku) and smelt (kuore) catches?
+1.5  Do vendace (muikku) and whitefish (siika) show similar catch trends?
+1.6  Which fish species has decreased the most in relative terms?
+
+2. CATCH STATISTICS + LUKE ECONOMICS
+------------------------------------
+These questions turn catch into economic value, where value = catch x unit price.
+[Unit price per year comes from Luke's data. If a year's price is missing, estimate it from the average of the previous and next year.]
+2.1  Which catch species is economically the most important in 2024?
+2.2  Has the most economically important species changed over the period?
+2.3  ("Crayfish" here means signal crayfish / täplärapu.) Is the value of the signal crayfish catch higher than that of the most valuable fish species?
+2.4  If so, when did signal crayfish become the most valuable catch?
+2.5  How has the total economic value of the entire catch changed from 2010 to 2024, and which species contributed most to that change?
+2.6  Did the most valuable species (by euros) and the largest species (by weight) ever differ in the same year, and when?
+2.7  Compare the value trends of vendace (muikku) and perch (ahven): did one overtake the other, and in which year?
+
+3. CATCH STATISTICS + WATER QUALITY
+-----------------------------------
+These questions relate catch to water-quality measurements, sometimes shifted by a year: the previous year or the following year
+3.1  Is there a relationship between vendace (muikku) catch and the previous year's temperature?
+3.2  Is there a relationship between roach (särki) catch and the following year's chlorophyll concentration?
+3.3  Is there a relationship between the combined vendace + smelt catch and the following year's total phosphorus at different depth zones?
+3.4  Among the main species, whose catch correlates most strongly with the previous year's bottom-water temperature?
+3.5  For roach (särki), is the relationship stronger with the following year's chlorophyll-a or with total phosphorus?
+
+4. THREE SOURCES COMBINED
+-------------------------
+These questions need catch data, Luke economics and water quality together.
+4.1  In the year signal crayfish (täplärapu) first overtook the top fish species in value, which fish species led by value that same year?
+4.2  For the most economically important species in 2024, is its catch value related to the previous year's bottom-water temperature?
+4.3  Did the economic value of the vendace (muikku) catch rise or fall in years that followed warmer-than-average water temperatures?
+4.4  In the year the total economic value of the catch peaked, what were the chlorophyll and total phosphorus levels, and which species drove that value?
+4.5  Among the main species, whose economic value correlates most strongly with the following year's chlorophyll concentration?
+4.6  When the combined vendace + smelt catch was at its highest economic value, how did that year's total phosphorus compare to the period average?
+4.7  Has the unit price (Luke economics) of the most temperature-sensitive species changed in a way that amplified or offset the catch changes linked to water quality?
+
+5. METHODOLOGY + DATA
+---------------------
+Here the assistant must first read how something is defined or calculated, then apply it to the numbers.
+5.1  How is the economic value of a catch calculated here, and based on that method, which species was the most valuable in 2024?
+5.2  Why is signal crayfish valued by count rather than by weight, and has its catch value overtaken the most valuable fish species?
+5.3  Missing unit prices are estimated from neighbouring years. Using that approach, how has perch's (ahven) economic value trended since 2010?
