@@ -19,7 +19,7 @@ This is a genuine **agentic system**, not a single-shot router. Built as a **Lan
 The request pattern, from question to answer:
 
 <p align="center">
-  <img src="ui/public/architecture_diagram.png" alt="Architecture diagram" width="360">
+  <img src="ui/public/architecture_diagram.png" alt="Architecture diagram" width="460">
 </p>
 
 **Clear separation of layers:**
