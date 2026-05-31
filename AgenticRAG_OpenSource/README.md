@@ -309,7 +309,7 @@ ui/                  React (Vite) chat interface
 
 ## Contact
 
-**Toufique Hasan**
-Doctoral Researcher, GPT-Lab, Tampere University
+**Toufique Hasan**<br>
+Doctoral Researcher, GPT-Lab, Tampere University<br>
 Email: [mdtoufique.hasan@tuni.fi](mailto:mdtoufique.hasan@tuni.fi)
 
