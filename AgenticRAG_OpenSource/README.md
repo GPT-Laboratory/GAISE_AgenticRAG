@@ -290,6 +290,7 @@ pipelines/
 data/
   raw/               source files: Excel + PDF + methodology.md + sample_FAQs.txt (indexed)
   processed/         clean, analysis-ready CSVs (behind the tools) — generated
+  cache/             vector index - generated
 ui/                  React (Vite) chat interface
 ```
 
