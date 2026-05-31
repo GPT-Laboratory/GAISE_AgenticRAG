@@ -216,3 +216,7 @@ data/cache/*.parquet
 # Node / frontend
 node_modules/
 ui/dist/
+
+# macOS
+.DS_Store
+**/.DS_Store
