@@ -1,15 +1,13 @@
 ---
 config:
-  theme: neo
-  fontFamily: "'Recursive Variable', sans-serif"
+  theme: mc
+  fontFamily: '''Recursive Variable'', sans-serif'
   look: neo
   layout: dagre
   themeVariables:
-    fontFamily: "'Recursive Variable', sans-serif"
-    fontSize: "20px"
+    fontFamily: '''Recursive Variable'', sans-serif'
+    fontSize: 12px
 ---
-%% Agentic RAG — simple architecture pattern
-%% Render at https://mermaid.live or with: mmdc -i architecture.mmd -o architecture.svg
 flowchart TB
     A["User asks question in UI"] --> B["Chatbot Interface (FastAPI)"]
     B --> C["LLM Agent (LangGraph)"]
