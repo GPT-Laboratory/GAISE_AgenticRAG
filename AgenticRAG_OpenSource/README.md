@@ -1,6 +1,6 @@
 # Fully Local Open-Source Agentic RAG System
 
-A **data-grounded analytical chatbot** that answers questions about the fishery, economic, and water-quality data of Lake Pyhäjärvi. A local LLM **orchestrates** each answer by calling analytical tools and a document-retrieval tool — it never computes numbers itself and never answers from general knowledge.
+A **data-grounded analytical chatbot** that answers questions about the fishery, economic, and water-quality data of Lake Pyhäjärvi. A local LLM **orchestrates** each answer by calling analytical tools and a document-retrieval tool.
 
 The entire stack is **open-source and runs fully locally** — no API keys, no cloud calls, no recurring cost. The LLM runs in [Ollama](https://ollama.com), the agent is orchestrated with [LangGraph](https://github.com/langchain-ai/langgraph), embeddings run via `sentence-transformers`, and the vector store is a local Chroma index.
 
@@ -92,9 +92,7 @@ See [Assumptions & limitations](#assumptions--limitations) for how messy data is
 
 ## Prerequisites — install these first
 
-You need three tools installed: **Ollama** (runs the local AI model), **Python 3.11** (the
-backend), and **Node.js 18+** (the web UI). Plan for ~10 GB of free disk (the model is ~9 GB) and
-ideally 16 GB+ RAM for the 14B model (an 8 GB machine should use the 7B model — see the note below).
+You need three tools installed: **Ollama** (runs the local AI model), **Python 3.11** (the backend), and **Node.js 18+** (the web UI). Plan for ~10 GB of free disk (the model is ~9 GB) and ideally 16 GB+ RAM for the 14B model (an 8 GB machine should use the 7B model — see the note below).
 
 **1. Ollama** — the local LLM runtime.
 
@@ -121,9 +119,7 @@ Once all three are installed, follow **How to run** below.
 
 ## How to run
 
-> **Ollama must be running** for the backend to answer. If you used the macOS/Windows installer it
-> already runs in the background — check for its menu-bar/tray icon. Otherwise start it with
-> `ollama serve` in a separate terminal *before* launching the backend.
+> **Ollama must be running** for the backend to answer. If you used the macOS/Windows installer it already runs in the background — check for its menu-bar/tray icon. Otherwise start it with `ollama serve` in a separate terminal *before* launching the backend.
 
 ### Already set up? Quick start
 
@@ -156,7 +152,10 @@ pip install -r requirements.txt
 ollama pull qwen2.5:14b-instruct
 ollama pull qwen2.5:7b-instruct             # optional fallback
 
-# 3. Build data: raw Excel → clean CSVs, and raw KB → vector index
+# 3. (OPTIONAL) Rebuild data from scratch.
+#    The clean CSVs and the vector index are already committed in the repo,
+#    so you can SKIP this step. Only run it if you change the raw sources
+#    in data/raw/ and want to regenerate everything:
 python pipelines/build_processed_data.py    # → data/processed/*.csv
 python pipelines/build_vector_index.py      # → data/cache/vector_index/ (first run downloads the e5 model)
 
@@ -178,9 +177,21 @@ Copy `.env.example` → `.env` to override any default (model name, `RAG_TOP_K`,
 
 ## The tool layer
 
-`app/agent_tools.py` exposes **11 callable tools** to the LLM, each with a strict JSON schema (`TOOL_SCHEMAS`) and a dispatch entry (`DISPATCH`). LangGraph binds these schemas to the model; the Ollama runtime returns native tool calls; the `tools` node executes them and feeds structured results back — the canonical tool-calling pattern (typed schemas, a dispatcher, structured results turned into a natural-language answer).
+`app/agent_tools.py` gives the LLM **11 tools** it can call. Each tool has two parts:
 
-These 11 tools deliberately consolidate ~24 fine-grained analytics wrappers in `app/tools.py` (via enum/list parameters) because a local 14B model degrades in tool-selection accuracy past ~10–12 near-synonymous tools. The analytics logic itself is **not** rewritten by this layer.
+- a **JSON schema** in `TOOL_SCHEMAS` — tells the model what the tool does and what arguments it takes.
+- a **dispatch entry** in `DISPATCH` — maps the tool's name to the Python function that actually runs it.
+
+The flow is simple:
+
+1. LangGraph shows the model the tool schemas, so it knows what's available.
+2. When the model decides to use a tool, Ollama returns a tool call (the tool name + arguments).
+3. The `tools` node looks that name up in `DISPATCH`, runs the function, and passes the result back to the model.
+4. The model turns that result into a plain-language answer for the user.
+
+This is the standard tool-calling pattern: typed schemas describe the tools, a dispatcher runs them, and structured results become a natural-language answer.
+
+**Why only 11 tools?** Behind the scenes there are ~24 fine-grained analytics functions in `app/tools.py`. We deliberately group them into 11 tools (using enum/list parameters) because a local 14B model gets noticeably worse at *picking the right tool* once it has more than ~10–12 similar-looking options to choose from. Fewer, broader tools = more reliable tool selection. The analytics logic itself is **not** changed by this layer — it's just wrapped.
 
 
 | Tool                     | Purpose                                                            |
@@ -256,17 +267,17 @@ These 11 tools deliberately consolidate ~24 fine-grained analytics wrappers in `
 
 **What I would improve with more time**
 
-- A genuine lightweight forecaster (linear trend or a small tree model) behind `forecast_catch`, so predictive questions get an actual projection with a confidence note.
-- Stream the final answer token-by-token (the live LangGraph step trace and flow graph already stream via `/chat/stream`; only per-token answer streaming remains).
-- An automated eval set over the sample questions (golden tool calls + numeric assertions) in CI, so regressions in routing or analytics are caught.
-- Richer chunking/metadata for retrieval (section-aware splits, per-source weighting).
+- **Real forecasting.** Right now `forecast_catch` is a simple trend line. I'd replace it with a proper (but still lightweight) model — a linear trend or small tree model — that gives an actual prediction plus a confidence note.
+- **Token-by-token answers.** The live "thinking" trace and the flow graph already stream to the UI via `/chat/stream`. The one piece left is streaming the final written answer word-by-word instead of showing it all at once.
+- **Automated tests for answer quality.** A set of sample questions with known-correct tool calls and expected numbers, run automatically in CI — so if a future change breaks the routing or the math, I'd catch it immediately.
+- **Smarter document retrieval.** Split documents along their real sections (not just fixed-size chunks) and weight sources differently, so the most relevant text is retrieved more reliably.
 
 **Making it robust for real-world use**
 
-- Schema/units validation on ingestion with explicit failure on unexpected layouts.
-- Tool-result caching and timeouts; structured logging of every tool call for auditability.
-- Authentication, rate limiting, and a guardrail that refuses to answer when no tool returned grounded data (already partly present via the "no grounded answer" fallback).
-- Pin model + embedding versions and snapshot the index, so answers are reproducible.
+- **Validate data on the way in.** Check that uploaded files have the expected columns and units, and fail loudly if a file's layout is unexpected — instead of silently producing wrong numbers.
+- **Speed and traceability.** Cache tool results, add timeouts so a slow tool can't hang a request, and log every tool call so you can audit exactly how each answer was produced.
+- **Security and safe answers.** Add login and rate limiting, and make sure the assistant refuses to answer when no tool returned real data. (This last guardrail already partly exists via the "no grounded answer" fallback.)
+- **Reproducible results.** Pin the exact LLM and embedding-model versions and snapshot the vector index, so the same question always gives the same answer.
 
 ---
 
@@ -289,8 +300,16 @@ pipelines/
   build_vector_index.py     data/raw/* → parse → chunk → embed → Chroma
 data/
   raw/               source files: Excel + PDF + methodology.md + sample_FAQs.txt (indexed)
-  processed/         clean, analysis-ready CSVs (behind the tools) — generated
-  cache/             vector index - generated
+  processed/         clean, analysis-ready CSVs (behind the tools) — committed; rebuildable
+  cache/             vector index — committed; rebuildable
 ui/                  React (Vite) chat interface
 ```
+
+---
+
+## Contact
+
+**Toufique Hasan**
+Doctoral Researcher, GPT-Lab, Tampere University
+Email: [mdtoufique.hasan@tuni.fi](mailto:mdtoufique.hasan@tuni.fi)
 
