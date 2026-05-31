@@ -1,0 +1,55 @@
+================================================================================
+SAMPLE FAQs — MEDICAL USE CASE (Intracranial Aneurysms)
+================================================================================
+
+Purpose
+-------
+This file provides sample questions for participants building Agentic RAG applications on top of the medical document corpus in ./data/. The corpus is a collection of peer-reviewed literature on intracranial / cerebral aneurysms, covering rupture- and growth-risk scoring, hemodynamics & CFD, aneurysm wall biology and inflammation, the oral- and gut-microbiome link, treatment options (clipping vs. coiling, flow diversion), and epidemiology.
+
+How to use these questions
+--------------------------
+The questions are split into two groups so you can test both retrieval modes your agent must handle:
+  • SINGLE-DOCUMENT — the answer can be found within a single document. Tests precise retrieval and grounded extraction (single-hop).
+  • MULTI-DOCUMENT — the answer requires retrieving from several documents and then comparing / aggregating / synthesizing across them (multi-hop). These are the ones that separate a real agentic pipeline (query decomposition, iterative retrieval, cross-source reasoning) from a plain top-k lookup.
+
+================================================================================
+PART A — SINGLE-DOCUMENT QUESTIONS  (answer found within one document)
+================================================================================
+1. What clinical and aneurysm characteristics are used to estimate the rupture risk of an unruptured intracranial aneurysm?
+2. Which factors are used to predict the growth risk of an unruptured intracranial aneurysm?
+3. How do one-year outcomes compare between endovascular coiling and neurosurgical clipping after aneurysmal subarachnoid hemorrhage?
+4. What are the long-term outcomes (death, dependency, rebleeding) after treatment of a ruptured intracranial aneurysm?
+5. By what mechanism does Toll-like receptor 4 (TLR4) signaling contribute to intracranial aneurysm rupture?
+6. How do neutrophil extracellular traps (NETs) promote intracranial aneurysm rupture?
+7. At what size are intracranial aneurysms most likely to rupture?
+8. What do clinical guidelines recommend for the management of small unruptured intracranial aneurysms?
+9. How common are blebs on intracranial aneurysms, and what characteristics are associated with them?
+10. How do second-generation hydrogel coils perform compared with conventional bare platinum coils?
+11. Why is computational fluid dynamics (CFD) alone considered insufficient for reliably modeling intracranial aneurysm hemodynamics?
+12. How can the relationship between arterial pressure and aneurysm neck geometry be used to estimate rupture risk?
+13. What lifestyle and clinical risk factors are associated with aneurysmal subarachnoid hemorrhage in the general population?
+14. Is frailty a better predictor than chronological age of outcome after unruptured aneurysm surgery?
+15. How do surgical and endovascular treatment compare for middle cerebral artery aneurysms?
+16. Does dental caries associate with intracranial aneurysms or aneurysmal subarachnoid hemorrhage?
+
+================================================================================
+PART B — MULTI-DOCUMENT QUESTIONS  (retrieve + synthesize across documents)
+================================================================================
+1. Compare the scoring systems used to predict aneurysm rupture versus aneurysm growth. What inputs does each rely on, and what limitations arise when such scores are applied retrospectively to ruptured aneurysms?
+2. Summarize the evidence linking periodontitis and oral pathogens to intracranial aneurysm formation and rupture. Which findings are epidemiological and which propose a biological mechanism?
+3. Across the randomized trials comparing clipping and endovascular treatment, what is the overall evidence on safety and durability for both ruptured and unruptured aneurysms?
+4. What is the relationship between aneurysm size and rupture risk, and where do the studies disagree? Address the specific case of small (<10 mm) aneurysms.
+5. How does local hemodynamics relate to the aneurysm wall? Connect the CFD / flow findings with the histological changes observed in the wall.
+6. Describe the inflammatory and cellular pathways implicated in aneurysm wall degeneration and rupture (complement, NF-κB, TLR4, NETs, mural / smooth muscle cells, macrophages). How do they fit together into a wall-degradation story?
+7. What is the evidence that the gut microbiome influences intracranial aneurysm formation, progression, and rupture?
+8. Compare hydrogel-coated and bioactive coil technologies against bare platinum coils. What does the evidence show about recurrence and occlusion?
+9. Does aneurysm shape irregularity predict rupture independently of size? What do the population-based and multiple-aneurysm studies conclude?
+10. How are machine learning / statistical learning and shape + hemodynamic analysis being used to improve rupture-risk stratification, and what input features do these models rely on?
+11. Synthesize the evidence on how patient factors — sex, age / elderly status, frailty, and lifestyle — modify both rupture risk and treatment risk.
+12. For a newly diagnosed, asymptomatic 6 mm unruptured aneurysm, build an evidence-based "treat vs. monitor" briefing: rupture-risk estimate, growth risk, procedural risk, and what the guidelines advise.
+
+================================================================================
+TIP FOR PARTICIPANTS
+--------------------
+The multi-document questions are deliberately the hard cases. A naive top-k RAG will retrieve from only one or two relevant documents and give a partial answer. Use your agent to (a) decompose the question into sub-queries, (b) retrieve iteratively, (c) track which sources have been covered, and (d) cite each claim back to its source document.
+================================================================================

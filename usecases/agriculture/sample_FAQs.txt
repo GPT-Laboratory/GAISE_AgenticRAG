@@ -1,0 +1,59 @@
+================================================================================
+SAMPLE FAQs — AGRICULTURE USE CASE (Climate-Smart Agriculture & Forestry)
+================================================================================
+
+Purpose
+-------
+This file provides sample questions for participants building Agentic RAG applications on top of the agriculture document corpus in ./data/. The corpus is a large collection of research reports, fact cards ("Tietokortit"), measure cards ("Toimenpidekortit") and guides on climate-smart agriculture and forestry, covering biochar, carbon farming / soil carbon sequestration, peatland (peat-field) cultivation, soil health, water management & wetlands, crop rotation and intercropping, data-driven / smart agriculture, forestry and forest-pest management, and agricultural subsidies & conditionality.
+
+NOTE — MULTILINGUAL CORPUS
+--------------------------
+The documents are written mostly in FINNISH, some in SWEDISH, and a few in ENGLISH. Cross-lingual retrieval is therefore part of the challenge: a question asked in English must still match relevant Finnish / Swedish passages. You can ask the questions below in English or in the source language. Choosing an embedding model with strong multilingual support will matter here.
+
+How to use these questions
+--------------------------
+The questions are split into two groups so you can test both retrieval modes your agent must handle:
+  • SINGLE-DOCUMENT — the answer can be found within a single document. Tests precise (and cross-lingual) retrieval and grounded extraction (single-hop).
+  • MULTI-DOCUMENT — the answer requires retrieving from several documents and then comparing / aggregating / synthesizing across them (multi-hop). These are the ones that separate a real agentic pipeline (query decomposition, iterative retrieval, cross-source reasoning) from a plain top-k lookup.
+
+================================================================================
+PART A — SINGLE-DOCUMENT QUESTIONS  (answer found within one document)
+=====================
+1. What are the key physical and chemical properties of biochar?
+2. How is biochar used as a soil-improvement amendment, and what benefits does it provide to the soil?
+3. Can biochar be used in the feeding of production animals, and what effects does it have?
+4. What is involved in converting a diesel tractor to run on biomethane?
+5. What are the main cybersecurity risks in agriculture and how can a farm protect itself?
+6. What are the economic challenges and opportunities of crop rotation on a poultry farm?
+7. Why should protein crops be included in the crop rotation, and which ones are recommended?
+8. What practical measures can a farmer take to increase the organic-matter content (humus) of field soil?
+9. What are the principles of managing the water balance of a field?
+10. How should drone-collected data be interpreted for agricultural use?
+11. What is continuous-cover forestry ("jatkuva kasvatus") and how does it differ from rotation forestry?
+12. How is the spruce bark beetle (kirjanpainaja) identified and monitored, and what damage does it cause?
+13. What does the 2025 conditionality guide require of farmers to receive support?
+14. What is structure lime ("rakennekalkki"), and when and how should it be applied as a water-protection measure?
+15. What practices make peat-field cultivation more climate-smart?
+16. What are the basics of data-driven climate-smart agriculture (CSA)?
+
+================================================================================
+PART B — MULTI-DOCUMENT QUESTIONS  (retrieve + synthesize across documents)
+================================================================================
+1. Give a complete profile of biochar in agriculture: its properties, how it is used, its role as a soil amendment, its use in animal feed, and how biochar carbon storage is assessed.
+2. Explain the step-by-step ("porras" / "trappa") approach to carbon farming and soil-carbon sequestration on agricultural land. What actions are recommended at each stage?
+3. How can greenhouse-gas emissions from cultivated peat fields be reduced? Cover water management, low-emission practices, and the farmer's perspective.
+4. Describe soil health ("maan kasvukunto") across its biological, physical and chemical dimensions. How do the three interact?
+5. What agricultural water-protection measures are available, and how do wetlands, buffer strips and controlled drainage contribute?
+6. Build an overview of data-driven / smart agriculture: its basics, the use of drone remote sensing, and the cybersecurity considerations that come with it.
+7. What intercropping ("sekaviljely") experiments are described in the corpus, which crop combinations were tested, and what were the results?
+8. Summarize forest pest and damage management in the corpus: spruce bark beetle, root rot (juurikääpä), and overall forest-damage risk assessment.
+9. A Finnish farmer is planning for the 2024–2025 season. What must they comply with and what subsidies can they apply for? Cover conditionality, animal subsidies and field-support conditions.
+10. What options exist for keeping fields covered (cover crops / winter soil cover), and what climate and water benefits do they provide?
+11. What new or "disruptive" food-production methods are emerging in Finland, and what are their opportunities and challenges?
+12. How are different production sectors adapting to climate change? Compare reindeer husbandry, pollinator / beekeeping security in arctic conditions, and the dairy & beef sector's path to carbon neutrality.
+
+================================================================================
+TIP FOR PARTICIPANTS
+--------------------
+The multi-document questions are deliberately the hard cases. A naive top-k RAG will retrieve from only one or two relevant documents and give a partial answer. Use your agent to (a) decompose the question into sub-queries, (b) retrieve iteratively, (c) track which sources have been covered, and (d) cite each claim back to its source document. Because the corpus is multilingual, also test whether your retriever finds Finnish / Swedish sources for an English question.
+================================================================================
