@@ -46,10 +46,9 @@ These questions need catch data, Luke economics and water quality together.
 4.1  In the year signal crayfish (täplärapu) first overtook the top fish species in value, which fish species led by value that same year?
 4.2  For the most economically important species in 2024, is its catch value related to the previous year's bottom-water temperature?
 4.3  Did the economic value of the vendace (muikku) catch rise or fall in years that followed warmer-than-average water temperatures?
-4.4  In the year the total economic value of the catch peaked, what were the chlorophyll and total phosphorus levels, and which species drove that value?
-4.5  Among the main species, whose economic value correlates most strongly with the following year's chlorophyll concentration?
-4.6  When the combined vendace + smelt catch was at its highest economic value, how did that year's total phosphorus compare to the period average?
-4.7  Has the unit price (Luke economics) of the most temperature-sensitive species changed in a way that amplified or offset the catch changes linked to water quality?
+4.4  Among the main species, whose economic value correlates most strongly with the following year's chlorophyll concentration?
+4.5  When the combined vendace + smelt catch was at its highest economic value, how did that year's total phosphorus compare to the period average?
+4.6  Has the unit price (Luke economics) of the most temperature-sensitive species changed in a way that amplified or offset the catch changes linked to water quality?
 
 5. METHODOLOGY + DATA
 ---------------------

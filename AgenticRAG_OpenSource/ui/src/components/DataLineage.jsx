@@ -10,12 +10,18 @@
 import { useLayoutEffect, useRef, useState } from "react";
 
 const SOURCE_INFO = {
+  // Processed CSV datasets (deterministic analytics tools)
   "catch_clean.csv": { label: "Fish catch", desc: "Catch in kg by year & species, 2010–2024", type: "dataset" },
   "count_catch_clean.csv": { label: "Count catch", desc: "Count-based catch (signal crayfish)", type: "dataset" },
   "water_quality_clean.csv": { label: "Water quality", desc: "Chlorophyll, nitrogen, phosphorus, temperature", type: "dataset" },
   "luke_clean.csv": { label: "Luke economics", desc: "Commercial quantity, value & unit price", type: "dataset" },
+  // Knowledge-base documents (vector retrieval via document_search). Keys are the
+  // exact filenames stored as chunk `source` metadata in the vector index.
   "methodology.md": { label: "Methodology", desc: "Definitions, assumptions & methods", type: "document" },
-  "sample_FAQs.txt": { label: "FAQ knowledge", desc: "Frequently asked questions", type: "document" },
+  "Saalistilasto-kala-ja-rapu-2010-2027.pdf": { label: "Catch statistics (PDF)", desc: "Official fish & crayfish catch statistics, 2010–2027", type: "document" },
+  "TAUlle BioAItyohon luke 0600_kausis_20260326-134254.xlsx": { label: "Luke source data", desc: "Commercial quantity, value & price source workbook", type: "document" },
+  "TAUlle BioAItyohon pyhaj syvanteen vedenlaatutietoa.xlsx": { label: "Water-quality source", desc: "Pyhäjärvi deep-point water-quality measurements", type: "document" },
+  "TAUlle BioAItyohon pyhajarven saalistilasto 2010_2025.xlsx": { label: "Catch source data", desc: "Pyhäjärvi catch statistics, 2010–2025", type: "document" },
 };
 
 function sourceInfo(name) {

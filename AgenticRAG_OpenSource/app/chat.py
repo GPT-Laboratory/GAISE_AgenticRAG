@@ -457,18 +457,66 @@ def _doc_search_detail(result: Any) -> Optional[dict[str, Any]]:
     return detail if any(v for v in detail.values()) else None
 
 
-def _extract_sources(result: Any) -> list[str]:
-    """The data file(s) a tool result drew on (CSV datasets or KB documents)."""
-    if not isinstance(result, dict):
-        return []
-    raw = result.get("source")
-    if raw is None:
-        raw = result.get("sources")
-    if isinstance(raw, str):
-        raw = [raw]
-    if not isinstance(raw, list):
-        return []
-    return [s for s in raw if isinstance(s, str) and s]
+# Canonical provenance for the deterministic CSV-backed tools. Each tool always
+# draws on the same data file(s) regardless of which branch it returns, so we
+# fall back to this when a tool result omits an explicit `source` (e.g. its
+# "no data found for that year/species" branch). This guarantees data lineage
+# is shown for every analytics answer, not just the happy-path returns.
+# `document_search` is intentionally absent: its sources are the documents
+# actually retrieved, so an empty result legitimately means "nothing retrieved".
+TOOL_DATA_SOURCES: dict[str, list[str]] = {
+    "get_catch": ["catch_clean.csv"],
+    "get_largest_change": ["catch_clean.csv"],
+    "compare_species_catch": ["catch_clean.csv"],
+    "forecast_catch": ["catch_clean.csv"],
+    "estimate_value": ["catch_clean.csv", "luke_clean.csv"],
+    "rank_value_species": ["catch_clean.csv", "luke_clean.csv"],
+    "value_trend_or_compare": ["catch_clean.csv", "luke_clean.csv"],
+    "correlate_with_metric": ["catch_clean.csv", "water_quality_clean.csv"],
+    "count_item_analysis": ["count_catch_clean.csv", "catch_clean.csv", "luke_clean.csv"],
+}
+
+# list_data_dimensions draws on a different file depending on which dimension
+# was requested; map the argument to its source for the lineage fallback.
+_DIMENSION_SOURCES: dict[str, str] = {
+    "species": "catch_clean.csv",
+    "count_items": "count_catch_clean.csv",
+    "metrics": "water_quality_clean.csv",
+}
+
+
+def _extract_sources(result: Any, tool_name: str | None = None, arguments: Any = None) -> list[str]:
+    """The data file(s) a tool result drew on (CSV datasets or KB documents).
+
+    Prefers the explicit `source`/`sources` key on the result. When that is
+    absent (an edge/no-data branch that forgot to set it), falls back to the
+    canonical per-tool mapping so lineage stays visible for every answer.
+    """
+    if isinstance(result, dict):
+        raw = result.get("source")
+        if raw is None:
+            raw = result.get("sources")
+        if isinstance(raw, str):
+            raw = [raw]
+        if isinstance(raw, list):
+            explicit = [s for s in raw if isinstance(s, str) and s]
+            if explicit:
+                return explicit
+
+        # A missing/invalid-parameter early return (see app.agent_tools._missing)
+        # short-circuits before any data file is read, so it has no provenance —
+        # don't fabricate one via the fallback below.
+        msg = result.get("message")
+        if isinstance(msg, str) and msg.startswith("Missing required parameter"):
+            return []
+
+    if tool_name in TOOL_DATA_SOURCES:
+        return list(TOOL_DATA_SOURCES[tool_name])
+    if tool_name == "list_data_dimensions" and isinstance(arguments, dict):
+        kind = str(arguments.get("kind") or "").strip().lower()
+        if kind in _DIMENSION_SOURCES:
+            return [_DIMENSION_SOURCES[kind]]
+    return []
 
 
 def _source_type(name: str) -> str:
@@ -577,7 +625,7 @@ def stream_chat_response(message: str, history: list[dict[str, Any]]):
                             all_sources.extend(retrieval["sources"])
 
                         # Provenance: which data file(s) this tool call hit.
-                        data_sources = _extract_sources(entry["result"])
+                        data_sources = _extract_sources(entry["result"], name, entry.get("arguments"))
                         for src in data_sources:
                             stat = source_stats.setdefault(
                                 src, {"name": src, "type": _source_type(src), "hits": 0, "tools": []}
