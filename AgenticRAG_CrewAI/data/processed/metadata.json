@@ -1,0 +1,95 @@
+{
+  "project": "BioAI Pyhajarvi data processing",
+  "processed_at_utc": "2026-04-14T21:46:38.899066+00:00",
+  "raw_files": [
+    "TAUlle BioAItyohon pyhajarven saalistilasto 2010_2025.xlsx",
+    "TAUlle BioAItyohon pyhaj syvanteen vedenlaatutietoa.xlsx",
+    "TAUlle BioAItyohon luke 0600_kausis_20260326-134254.xlsx"
+  ],
+  "processed_files": {
+    "catch_clean.csv": {
+      "rows": 160,
+      "columns": [
+        "year",
+        "species",
+        "species_english",
+        "species_key",
+        "catch_kg"
+      ],
+      "year_min": 2010,
+      "year_max": 2024,
+      "species_count": 12
+    },
+    "count_catch_clean.csv": {
+      "rows": 15,
+      "columns": [
+        "year",
+        "item_key",
+        "count_units",
+        "unit"
+      ],
+      "year_min": 2010,
+      "year_max": 2024,
+      "item_count": 1
+    },
+    "water_quality_clean.csv": {
+      "rows": 16,
+      "columns": [
+        "year",
+        "chlorophyll_a_surface_ug_l",
+        "total_n_surface_ug_l",
+        "total_p_surface_ug_l",
+        "total_n_mid_ug_l",
+        "total_p_mid_ug_l",
+        "total_n_bottom_ug_l",
+        "total_p_bottom_ug_l",
+        "temp_1m_c",
+        "temp_bottom_c"
+      ],
+      "year_min": 2010,
+      "year_max": 2025
+    },
+    "water_quality_long.csv": {
+      "rows": 144,
+      "columns": [
+        "year",
+        "metric_key",
+        "value"
+      ]
+    },
+    "luke_clean.csv": {
+      "rows": 855,
+      "columns": [
+        "year",
+        "species_finnish",
+        "species_english",
+        "species_key",
+        "quantity_kg",
+        "quantity_units",
+        "value_eur",
+        "price_eur_per_kg",
+        "price_eur_per_unit"
+      ],
+      "year_min": 1980,
+      "year_max": 2024
+    },
+    "species_dictionary.csv": {
+      "rows": 19,
+      "columns": [
+        "finnish",
+        "english",
+        "key"
+      ]
+    },
+    "metric_dictionary.csv": {
+      "rows": 9,
+      "columns": [
+        "metric_key",
+        "label",
+        "unit",
+        "depth_zone",
+        "description"
+      ]
+    }
+  }
+}

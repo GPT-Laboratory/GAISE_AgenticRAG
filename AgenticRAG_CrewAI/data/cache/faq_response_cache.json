@@ -1,0 +1,951 @@
+{
+  "total_catch_by_year": {
+    "2010": 522300.0,
+    "2011": 598600.0,
+    "2012": 564700.0,
+    "2013": 740800.0,
+    "2014": 791500.0,
+    "2015": 758600.0,
+    "2016": 761575.0,
+    "2017": 884600.0,
+    "2018": 799500.0,
+    "2019": 850090.0,
+    "2020": 655900.0,
+    "2021": 706140.0,
+    "2022": 668120.0,
+    "2023": 621050.0,
+    "2024": 586490.0
+  },
+  "total_catch_summary": {
+    "start_year": 2010,
+    "end_year": 2024,
+    "start_total_kg": 522300.0,
+    "end_total_kg": 586490.0,
+    "change_kg": 64190.0
+  },
+  "species_total_catch_rank": {
+    "roach": 2503000.0,
+    "smelt": 2282800.0,
+    "perch": 1876000.0,
+    "vendace": 1328000.0,
+    "pike": 1148500.0,
+    "ruffe": 600000.0,
+    "bream": 395700.0,
+    "whitefish": 318300.0,
+    "bleak": 24500.0,
+    "burbot": 14140.0,
+    "tench": 13200.0,
+    "trout": 5825.0
+  },
+  "top_species_by_total_catch": {
+    "species_key": "roach",
+    "catch_kg": 2503000.0
+  },
+  "species_percent_change_full_period": {
+    "bleak": -50.0,
+    "bream": 305.4054054054054,
+    "burbot": -76.25,
+    "perch": -10.891089108910892,
+    "pike": 29.508196721311474,
+    "roach": 18.01801801801802,
+    "ruffe": -75.43859649122807,
+    "smelt": 313.5514018691589,
+    "tench": 207.6923076923077,
+    "trout": -86.25,
+    "vendace": -55.2,
+    "whitefish": -7.608695652173914
+  },
+  "biggest_relative_increase": {
+    "species_key": "smelt",
+    "percent_change": 313.5514018691589
+  },
+  "biggest_relative_decrease": {
+    "species_key": "trout",
+    "percent_change": -86.25
+  },
+  "vendace_smelt_by_year": {
+    "2010": {
+      "vendace": 125000.0,
+      "smelt": 42800.0,
+      "combined": 167800.0
+    },
+    "2011": {
+      "vendace": 115000.0,
+      "smelt": 74000.0,
+      "combined": 189000.0
+    },
+    "2012": {
+      "vendace": 51000.0,
+      "smelt": 11000.0,
+      "combined": 62000.0
+    },
+    "2013": {
+      "vendace": 91000.0,
+      "smelt": 116000.0,
+      "combined": 207000.0
+    },
+    "2014": {
+      "vendace": 72000.0,
+      "smelt": 180000.0,
+      "combined": 252000.0
+    },
+    "2015": {
+      "vendace": 80000.0,
+      "smelt": 110000.0,
+      "combined": 190000.0
+    },
+    "2016": {
+      "vendace": 95000.0,
+      "smelt": 85000.0,
+      "combined": 180000.0
+    },
+    "2017": {
+      "vendace": 151000.0,
+      "smelt": 210000.0,
+      "combined": 361000.0
+    },
+    "2018": {
+      "vendace": 120000.0,
+      "smelt": 215000.0,
+      "combined": 335000.0
+    },
+    "2019": {
+      "vendace": 127000.0,
+      "smelt": 284000.0,
+      "combined": 411000.0
+    },
+    "2020": {
+      "vendace": 74000.0,
+      "smelt": 187000.0,
+      "combined": 261000.0
+    },
+    "2021": {
+      "vendace": 51000.0,
+      "smelt": 230000.0,
+      "combined": 281000.0
+    },
+    "2022": {
+      "vendace": 59000.0,
+      "smelt": 191000.0,
+      "combined": 250000.0
+    },
+    "2023": {
+      "vendace": 61000.0,
+      "smelt": 170000.0,
+      "combined": 231000.0
+    },
+    "2024": {
+      "vendace": 56000.0,
+      "smelt": 177000.0,
+      "combined": 233000.0
+    }
+  },
+  "estimated_species_value_rows": 160,
+  "estimated_value_by_year_species": [
+    {
+      "year": 2010,
+      "species_key": "bream",
+      "estimated_value_eur": 1449.8432601880875
+    },
+    {
+      "year": 2010,
+      "species_key": "burbot",
+      "estimated_value_eur": 6720.0
+    },
+    {
+      "year": 2010,
+      "species_key": "perch",
+      "estimated_value_eur": 142506.8493150685
+    },
+    {
+      "year": 2010,
+      "species_key": "pike",
+      "estimated_value_eur": 89257.35294117646
+    },
+    {
+      "year": 2010,
+      "species_key": "roach",
+      "estimated_value_eur": 36598.69848156183
+    },
+    {
+      "year": 2010,
+      "species_key": "ruffe",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2010,
+      "species_key": "smelt",
+      "estimated_value_eur": 23804.494382022473
+    },
+    {
+      "year": 2010,
+      "species_key": "trout",
+      "estimated_value_eur": 5466.666666666666
+    },
+    {
+      "year": 2010,
+      "species_key": "vendace",
+      "estimated_value_eur": 256219.41272430672
+    },
+    {
+      "year": 2010,
+      "species_key": "whitefish",
+      "estimated_value_eur": 66990.29126213593
+    },
+    {
+      "year": 2011,
+      "species_key": "bream",
+      "estimated_value_eur": 1738.733136192301
+    },
+    {
+      "year": 2011,
+      "species_key": "burbot",
+      "estimated_value_eur": 6650.0
+    },
+    {
+      "year": 2011,
+      "species_key": "perch",
+      "estimated_value_eur": 195865.65052414942
+    },
+    {
+      "year": 2011,
+      "species_key": "pike",
+      "estimated_value_eur": 12305.314171122995
+    },
+    {
+      "year": 2011,
+      "species_key": "roach",
+      "estimated_value_eur": 49199.585070086956
+    },
+    {
+      "year": 2011,
+      "species_key": "ruffe",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2011,
+      "species_key": "smelt",
+      "estimated_value_eur": 42740.11001872659
+    },
+    {
+      "year": 2011,
+      "species_key": "trout",
+      "estimated_value_eur": 4192.857142857143
+    },
+    {
+      "year": 2011,
+      "species_key": "vendace",
+      "estimated_value_eur": 250239.0020498017
+    },
+    {
+      "year": 2011,
+      "species_key": "whitefish",
+      "estimated_value_eur": 79107.76699029126
+    },
+    {
+      "year": 2012,
+      "species_key": "bream",
+      "estimated_value_eur": 3036.437246963562
+    },
+    {
+      "year": 2012,
+      "species_key": "burbot",
+      "estimated_value_eur": 5600.0
+    },
+    {
+      "year": 2012,
+      "species_key": "perch",
+      "estimated_value_eur": 301032.8638497652
+    },
+    {
+      "year": 2012,
+      "species_key": "pike",
+      "estimated_value_eur": 109090.90909090907
+    },
+    {
+      "year": 2012,
+      "species_key": "roach",
+      "estimated_value_eur": 68518.05728518056
+    },
+    {
+      "year": 2012,
+      "species_key": "ruffe",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2012,
+      "species_key": "smelt",
+      "estimated_value_eur": 6588.541666666667
+    },
+    {
+      "year": 2012,
+      "species_key": "trout",
+      "estimated_value_eur": 3571.4285714285716
+    },
+    {
+      "year": 2012,
+      "species_key": "vendace",
+      "estimated_value_eur": 117413.59447004611
+    },
+    {
+      "year": 2012,
+      "species_key": "whitefish",
+      "estimated_value_eur": 89669.99999999999
+    },
+    {
+      "year": 2013,
+      "species_key": "bream",
+      "estimated_value_eur": 3890.458119240632
+    },
+    {
+      "year": 2013,
+      "species_key": "burbot",
+      "estimated_value_eur": 5030.208333333334
+    },
+    {
+      "year": 2013,
+      "species_key": "perch",
+      "estimated_value_eur": 255625.647826352
+    },
+    {
+      "year": 2013,
+      "species_key": "pike",
+      "estimated_value_eur": 153634.21194190424
+    },
+    {
+      "year": 2013,
+      "species_key": "roach",
+      "estimated_value_eur": 90155.8814754563
+    },
+    {
+      "year": 2013,
+      "species_key": "ruffe",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2013,
+      "species_key": "smelt",
+      "estimated_value_eur": 50850.694444444445
+    },
+    {
+      "year": 2013,
+      "species_key": "trout",
+      "estimated_value_eur": 3288.5714285714284
+    },
+    {
+      "year": 2013,
+      "species_key": "vendace",
+      "estimated_value_eur": 198168.27813236736
+    },
+    {
+      "year": 2013,
+      "species_key": "whitefish",
+      "estimated_value_eur": 75711.88613861386
+    },
+    {
+      "year": 2014,
+      "species_key": "bream",
+      "estimated_value_eur": 18167.05336426914
+    },
+    {
+      "year": 2014,
+      "species_key": "burbot",
+      "estimated_value_eur": 4031.2500000000005
+    },
+    {
+      "year": 2014,
+      "species_key": "perch",
+      "estimated_value_eur": 310149.3506493506
+    },
+    {
+      "year": 2014,
+      "species_key": "pike",
+      "estimated_value_eur": 156248.52071005918
+    },
+    {
+      "year": 2014,
+      "species_key": "roach",
+      "estimated_value_eur": 82383.79022646007
+    },
+    {
+      "year": 2014,
+      "species_key": "ruffe",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2014,
+      "species_key": "smelt",
+      "estimated_value_eur": 50000.0
+    },
+    {
+      "year": 2014,
+      "species_key": "trout",
+      "estimated_value_eur": 4650.0
+    },
+    {
+      "year": 2014,
+      "species_key": "vendace",
+      "estimated_value_eur": 147824.5989304813
+    },
+    {
+      "year": 2014,
+      "species_key": "whitefish",
+      "estimated_value_eur": 85838.61386138614
+    },
+    {
+      "year": 2015,
+      "species_key": "bream",
+      "estimated_value_eur": 36050.51641589521
+    },
+    {
+      "year": 2015,
+      "species_key": "burbot",
+      "estimated_value_eur": 4938.541666666667
+    },
+    {
+      "year": 2015,
+      "species_key": "perch",
+      "estimated_value_eur": 373299.6960486322
+    },
+    {
+      "year": 2015,
+      "species_key": "pike",
+      "estimated_value_eur": 163204.80183900218
+    },
+    {
+      "year": 2015,
+      "species_key": "roach",
+      "estimated_value_eur": 105741.26203166472
+    },
+    {
+      "year": 2015,
+      "species_key": "ruffe",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2015,
+      "species_key": "smelt",
+      "estimated_value_eur": 36212.0338331411
+    },
+    {
+      "year": 2015,
+      "species_key": "trout",
+      "estimated_value_eur": 4325.0
+    },
+    {
+      "year": 2015,
+      "species_key": "vendace",
+      "estimated_value_eur": 169387.10741948348
+    },
+    {
+      "year": 2015,
+      "species_key": "whitefish",
+      "estimated_value_eur": 88854.78547854786
+    },
+    {
+      "year": 2016,
+      "species_key": "bream",
+      "estimated_value_eur": 49491.63879598662
+    },
+    {
+      "year": 2016,
+      "species_key": "burbot",
+      "estimated_value_eur": 5400.0
+    },
+    {
+      "year": 2016,
+      "species_key": "perch",
+      "estimated_value_eur": 437804.255319149
+    },
+    {
+      "year": 2016,
+      "species_key": "pike",
+      "estimated_value_eur": 168287.76978417268
+    },
+    {
+      "year": 2016,
+      "species_key": "roach",
+      "estimated_value_eur": 128940.85281980742
+    },
+    {
+      "year": 2016,
+      "species_key": "ruffe",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2016,
+      "species_key": "smelt",
+      "estimated_value_eur": 32352.941176470587
+    },
+    {
+      "year": 2016,
+      "species_key": "trout",
+      "estimated_value_eur": 3000.0
+    },
+    {
+      "year": 2016,
+      "species_key": "vendace",
+      "estimated_value_eur": 207248.03431022158
+    },
+    {
+      "year": 2016,
+      "species_key": "whitefish",
+      "estimated_value_eur": 91000.0
+    },
+    {
+      "year": 2017,
+      "species_key": "bream",
+      "estimated_value_eur": 45593.66754617415
+    },
+    {
+      "year": 2017,
+      "species_key": "burbot",
+      "estimated_value_eur": 5764.285714285715
+    },
+    {
+      "year": 2017,
+      "species_key": "perch",
+      "estimated_value_eur": 382741.116751269
+    },
+    {
+      "year": 2017,
+      "species_key": "pike",
+      "estimated_value_eur": 171584.09785932724
+    },
+    {
+      "year": 2017,
+      "species_key": "roach",
+      "estimated_value_eur": 136689.00804289544
+    },
+    {
+      "year": 2017,
+      "species_key": "ruffe",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2017,
+      "species_key": "smelt",
+      "estimated_value_eur": 80062.5
+    },
+    {
+      "year": 2017,
+      "species_key": "trout",
+      "estimated_value_eur": 3485.7142857142853
+    },
+    {
+      "year": 2017,
+      "species_key": "vendace",
+      "estimated_value_eur": 276356.691919192
+    },
+    {
+      "year": 2017,
+      "species_key": "whitefish",
+      "estimated_value_eur": 142758.62068965516
+    },
+    {
+      "year": 2018,
+      "species_key": "bream",
+      "estimated_value_eur": 28474.57627118644
+    },
+    {
+      "year": 2018,
+      "species_key": "burbot",
+      "estimated_value_eur": 4960.377358490566
+    },
+    {
+      "year": 2018,
+      "species_key": "perch",
+      "estimated_value_eur": 241874.99999999994
+    },
+    {
+      "year": 2018,
+      "species_key": "pike",
+      "estimated_value_eur": 170022.02643171808
+    },
+    {
+      "year": 2018,
+      "species_key": "roach",
+      "estimated_value_eur": 170234.74178403756
+    },
+    {
+      "year": 2018,
+      "species_key": "ruffe",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2018,
+      "species_key": "smelt",
+      "estimated_value_eur": 120701.7543859649
+    },
+    {
+      "year": 2018,
+      "species_key": "trout",
+      "estimated_value_eur": 5040.0
+    },
+    {
+      "year": 2018,
+      "species_key": "vendace",
+      "estimated_value_eur": 272956.7010309278
+    },
+    {
+      "year": 2018,
+      "species_key": "whitefish",
+      "estimated_value_eur": 150676.6917293233
+    },
+    {
+      "year": 2019,
+      "species_key": "bream",
+      "estimated_value_eur": 22163.814180929097
+    },
+    {
+      "year": 2019,
+      "species_key": "burbot",
+      "estimated_value_eur": 5767.741935483871
+    },
+    {
+      "year": 2019,
+      "species_key": "perch",
+      "estimated_value_eur": 255212.69841269843
+    },
+    {
+      "year": 2019,
+      "species_key": "pike",
+      "estimated_value_eur": 178987.84194528876
+    },
+    {
+      "year": 2019,
+      "species_key": "roach",
+      "estimated_value_eur": 116432.56997455472
+    },
+    {
+      "year": 2019,
+      "species_key": "ruffe",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2019,
+      "species_key": "smelt",
+      "estimated_value_eur": 110444.44444444445
+    },
+    {
+      "year": 2019,
+      "species_key": "trout",
+      "estimated_value_eur": 4641.0
+    },
+    {
+      "year": 2019,
+      "species_key": "vendace",
+      "estimated_value_eur": 278740.25974025973
+    },
+    {
+      "year": 2019,
+      "species_key": "whitefish",
+      "estimated_value_eur": 174095.85492227977
+    },
+    {
+      "year": 2020,
+      "species_key": "bleak",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2020,
+      "species_key": "bream",
+      "estimated_value_eur": 13130.89005235602
+    },
+    {
+      "year": 2020,
+      "species_key": "burbot",
+      "estimated_value_eur": 1943.8596491228068
+    },
+    {
+      "year": 2020,
+      "species_key": "perch",
+      "estimated_value_eur": 262599.3031358885
+    },
+    {
+      "year": 2020,
+      "species_key": "pike",
+      "estimated_value_eur": 193285.7142857143
+    },
+    {
+      "year": 2020,
+      "species_key": "roach",
+      "estimated_value_eur": 124001.54559505409
+    },
+    {
+      "year": 2020,
+      "species_key": "ruffe",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2020,
+      "species_key": "smelt",
+      "estimated_value_eur": 69303.5143769968
+    },
+    {
+      "year": 2020,
+      "species_key": "tench",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2020,
+      "species_key": "trout",
+      "estimated_value_eur": 2228.5714285714284
+    },
+    {
+      "year": 2020,
+      "species_key": "vendace",
+      "estimated_value_eur": 173974.21203438393
+    },
+    {
+      "year": 2020,
+      "species_key": "whitefish",
+      "estimated_value_eur": 120587.5
+    },
+    {
+      "year": 2021,
+      "species_key": "bleak",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2021,
+      "species_key": "bream",
+      "estimated_value_eur": 17965.174129353232
+    },
+    {
+      "year": 2021,
+      "species_key": "burbot",
+      "estimated_value_eur": 2672.131147540984
+    },
+    {
+      "year": 2021,
+      "species_key": "perch",
+      "estimated_value_eur": 253026.31578947365
+    },
+    {
+      "year": 2021,
+      "species_key": "pike",
+      "estimated_value_eur": 226604.65116279072
+    },
+    {
+      "year": 2021,
+      "species_key": "roach",
+      "estimated_value_eur": 123659.90990990991
+    },
+    {
+      "year": 2021,
+      "species_key": "ruffe",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2021,
+      "species_key": "smelt",
+      "estimated_value_eur": 106081.63265306121
+    },
+    {
+      "year": 2021,
+      "species_key": "tench",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2021,
+      "species_key": "trout",
+      "estimated_value_eur": 2760.0
+    },
+    {
+      "year": 2021,
+      "species_key": "vendace",
+      "estimated_value_eur": 116903.75939849624
+    },
+    {
+      "year": 2021,
+      "species_key": "whitefish",
+      "estimated_value_eur": 150013.15789473683
+    },
+    {
+      "year": 2022,
+      "species_key": "bleak",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2022,
+      "species_key": "bream",
+      "estimated_value_eur": 18231.263383297646
+    },
+    {
+      "year": 2022,
+      "species_key": "burbot",
+      "estimated_value_eur": 2104.3478260869565
+    },
+    {
+      "year": 2022,
+      "species_key": "perch",
+      "estimated_value_eur": 368378.10945273633
+    },
+    {
+      "year": 2022,
+      "species_key": "pike",
+      "estimated_value_eur": 235764.22764227644
+    },
+    {
+      "year": 2022,
+      "species_key": "roach",
+      "estimated_value_eur": 87137.72455089822
+    },
+    {
+      "year": 2022,
+      "species_key": "ruffe",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2022,
+      "species_key": "smelt",
+      "estimated_value_eur": 207084.2105263158
+    },
+    {
+      "year": 2022,
+      "species_key": "tench",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2022,
+      "species_key": "trout",
+      "estimated_value_eur": 5182.2222222222235
+    },
+    {
+      "year": 2022,
+      "species_key": "vendace",
+      "estimated_value_eur": 142709.190096517
+    },
+    {
+      "year": 2022,
+      "species_key": "whitefish",
+      "estimated_value_eur": 176709.67741935485
+    },
+    {
+      "year": 2023,
+      "species_key": "bleak",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2023,
+      "species_key": "bream",
+      "estimated_value_eur": 20929.648241206032
+    },
+    {
+      "year": 2023,
+      "species_key": "burbot",
+      "estimated_value_eur": 1835.2941176470588
+    },
+    {
+      "year": 2023,
+      "species_key": "perch",
+      "estimated_value_eur": 351006.71140939597
+    },
+    {
+      "year": 2023,
+      "species_key": "pike",
+      "estimated_value_eur": 247928.57142857142
+    },
+    {
+      "year": 2023,
+      "species_key": "roach",
+      "estimated_value_eur": 117619.04761904762
+    },
+    {
+      "year": 2023,
+      "species_key": "ruffe",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2023,
+      "species_key": "smelt",
+      "estimated_value_eur": 77942.23826714802
+    },
+    {
+      "year": 2023,
+      "species_key": "tench",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2023,
+      "species_key": "trout",
+      "estimated_value_eur": 3344.0000000000005
+    },
+    {
+      "year": 2023,
+      "species_key": "vendace",
+      "estimated_value_eur": 171965.13390601316
+    },
+    {
+      "year": 2023,
+      "species_key": "whitefish",
+      "estimated_value_eur": 157647.05882352943
+    },
+    {
+      "year": 2024,
+      "species_key": "bleak",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2024,
+      "species_key": "bream",
+      "estimated_value_eur": 18444.444444444445
+    },
+    {
+      "year": 2024,
+      "species_key": "burbot",
+      "estimated_value_eur": 2007.391304347826
+    },
+    {
+      "year": 2024,
+      "species_key": "perch",
+      "estimated_value_eur": 226845.42586750787
+    },
+    {
+      "year": 2024,
+      "species_key": "pike",
+      "estimated_value_eur": 216584.26966292135
+    },
+    {
+      "year": 2024,
+      "species_key": "roach",
+      "estimated_value_eur": 124282.0512820513
+    },
+    {
+      "year": 2024,
+      "species_key": "ruffe",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2024,
+      "species_key": "smelt",
+      "estimated_value_eur": 81944.44444444444
+    },
+    {
+      "year": 2024,
+      "species_key": "tench",
+      "estimated_value_eur": null
+    },
+    {
+      "year": 2024,
+      "species_key": "trout",
+      "estimated_value_eur": 2130.0
+    },
+    {
+      "year": 2024,
+      "species_key": "vendace",
+      "estimated_value_eur": 129382.09817131858
+    },
+    {
+      "year": 2024,
+      "species_key": "whitefish",
+      "estimated_value_eur": 119151.78571428571
+    }
+  ],
+  "top_species_by_estimated_value_latest_year": {
+    "year": 2024,
+    "species_key": "perch",
+    "estimated_value_eur": 226845.42586750787
+  }
+}

@@ -1,0 +1,9 @@
+crewai
+pandas
+matplotlib
+openai
+jinja2
+python-dotenv
+streamlit
+fastapi
+uvicorn

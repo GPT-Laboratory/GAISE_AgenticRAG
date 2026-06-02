@@ -1,0 +1,10 @@
+metric_key,label,unit,depth_zone,description
+chlorophyll_a_surface_ug_l,"Chlorophyll-a, surface",ug/l,surface,Annual average chlorophyll-a concentration in surface water.
+total_n_surface_ug_l,"Total nitrogen, surface",ug/l,surface,Annual average total nitrogen concentration in surface water.
+total_p_surface_ug_l,"Total phosphorus, surface",ug/l,surface,Annual average total phosphorus concentration in surface water.
+total_n_mid_ug_l,"Total nitrogen, mid-depth",ug/l,mid,Annual average total nitrogen concentration in mid-depth water.
+total_p_mid_ug_l,"Total phosphorus, mid-depth",ug/l,mid,Annual average total phosphorus concentration in mid-depth water.
+total_n_bottom_ug_l,"Total nitrogen, bottom",ug/l,bottom,Annual average total nitrogen concentration near the bottom.
+total_p_bottom_ug_l,"Total phosphorus, bottom",ug/l,bottom,Annual average total phosphorus concentration near the bottom.
+temp_1m_c,Temperature at 1 m,C,surface,Annual average temperature at 1 meter depth.
+temp_bottom_c,Bottom temperature,C,bottom,Annual average temperature near the bottom.

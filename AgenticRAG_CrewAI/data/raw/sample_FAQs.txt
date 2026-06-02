@@ -1,0 +1,25 @@
+SAMPLE FAQS FOR BIOAI SYTEM FROM PROVIDED DATA
+
+Pyhäjärvi Fishery Association catch statistics (table): 
+What fish species are included in the catch statistics?
+How has the total catch of Lake Pyhäjärvi developed over time?
+According to the statistics, what are the most important catch species?
+Is there a relationship between vendace (muikku) and smelt (kuore) catches?
+Do vendace (muikku) and whitefish (siika) show similar catch trends?
+Which fish species has decreased the most in relative terms?
+Over the entire statistical period, which fish species has increased the most?
+(Here, the AI should understand that it must consider only species that have data for the entire period.)
+
+Combined with Luke statistics: 
+(The AI should be able to calculate unit price per year from Luke’s data)
+Which catch species is economically the most important in the Pyhäjärvi statistics in 2024?
+Has the most important catch species changed during the association’s statistical period?
+(This requires using yearly unit prices from Luke’s statistics, or if missing, estimating using the average of the previous and next year.)
+In the Pyhäjärvi statistics, “crayfish” refers to signal crayfish (täplärapu).
+Is the value of the signal crayfish catch higher than the value of the most economically important fish species?
+If yes, at what point did signal crayfish become the most economically important catch species?
+
+Combined with water quality data: 
+Is there a relationship between vendace (muikku) catch and the previous year’s temperature?
+Is there a relationship between roach (särki) catch and the following year’s chlorophyll concentration?
+Is there a relationship between the combined catch of vendace (muikku) and smelt (kuore) and the following year’s total phosphorus concentration at different depth zones?
