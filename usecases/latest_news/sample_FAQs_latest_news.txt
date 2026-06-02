@@ -1,0 +1,67 @@
+
+THE DATASET IS AVAILABLE HERE: https://newsdata.io/datasets 
+SCROLL TO LATEST NEWS AND DOWNLOAD
+
+================================================================================
+SAMPLE FAQs — LATEST NEWS USE CASE (Multilingual News Articles & Event Tracking)
+================================================================================
+
+Purpose
+-------
+This file provides sample questions for participants building Agentic RAG applications on top of the latest-news document corpus in ./data/. The corpus contains news articles collected from many international sources and includes metadata such as title, link, keywords/categories, creator/author, description, content/full description, publication date, image URL, and source ID.
+
+The dataset is suitable for testing news-oriented retrieval tasks such as article lookup, source-aware answering, timeline reconstruction, event comparison, topic clustering, cross-lingual retrieval, and multi-source summarization.
+
+NOTE — MULTILINGUAL AND TIME-SENSITIVE CORPUS
+---------------------------------------------
+The documents are multilingual and come from a wide range of sources. Many articles are not in English, so cross-lingual retrieval is part of the challenge: a question asked in English may need to retrieve relevant Italian, Thai, Spanish, Arabic, German, Russian, French, Hindi, or other-language articles.
+
+The corpus is also time-sensitive. Publication date, source identity, duplicate stories, and near-duplicate syndicated articles matter. A good Agentic RAG system should not only retrieve relevant articles, but also compare timestamps, identify repeated coverage, and cite claims back to the correct source article.
+
+How to use these questions
+--------------------------
+The questions are split into two groups so you can test both retrieval modes your agent must handle:
+  • SINGLE-DOCUMENT — the answer can be found within one article or one metadata record. Tests precise retrieval, metadata extraction, and grounded article-level answering.
+  • MULTI-DOCUMENT — the answer requires retrieving several related articles and then comparing, aggregating, deduplicating, or synthesizing across sources. These are the questions that test whether the system is truly agentic rather than a simple top-k lookup.
+
+================================================================================
+PART A — SINGLE-DOCUMENT QUESTIONS  (answer found within one article)
+================================================================================
+1. What is the title, source, publication date, and short description of the article about Apple One Premier launching in Italy?
+2. What happened to Luciano Spalletti after the Roma-Napoli match, and which source reported it?
+3. Which article discusses the top Thai provinces with the highest COVID-19 cases, and what key numbers are mentioned?
+4. What does the article about Dapper Labs and NBA Top Shot say about professional sports leagues and NFTs?
+5. Which article reports on U.S. stock-market highs and low volatility in the Forex market, and what explanation is given?
+6. What information is provided about Napoli-Bologna and possible fan-zone arrangements?
+7. Which article discusses Juventus player Paulo Dybala, and why is he described as important for Allegri?
+8. What does the dataset record say about the boxing athletes Worapoj Petchkoom and Suriya Prasathinphimai?
+9. Which article is linked to the keyword/category “Coronavirus,” and what is its main topic?
+10. What source, title, and publication time are associated with a selected Premier League article?
+11. Which article includes an image URL for Luciano Spalletti, and what is the article about?
+12. What creator or author is listed for the iPhoneItalia article about Apple One Premier?
+13. Which article reports on football or Serie A, and what is the main claim in its description?
+14. What is the full description or content field for a selected article, and how does it differ from the short description?
+15. What keywords/categories are assigned to a selected business or finance article?
+16. What original news link is stored for a selected article, and which source ID does it belong to?
+
+================================================================================
+PART B — MULTI-DOCUMENT QUESTIONS  (retrieve + synthesize across articles)
+================================================================================
+1. Build a timeline of news articles published between 2021-10-24 and 2021-10-26 about COVID-19. Which countries or regions are covered, and how do the reported situations differ?
+2. Compare how different sources covered football news on 2021-10-26. Which teams, players, leagues, or managers appear most often?
+3. Summarize the main business and finance stories in the corpus. Cover stock markets, Forex, banking/financial services, and economy-related articles.
+4. Identify and compare articles about technology topics such as Apple services, NFTs, gaming, and computer/electronics news. What themes appear across sources?
+5. Find duplicate or near-duplicate stories across different sources. Which articles appear to report the same event, and how do their titles or descriptions differ?
+6. Compare coverage of sports beyond football, such as NBA, Formula 1, boxing, and other national sports stories. What events or personalities are mentioned?
+7. Create a source profile for the dataset: which source IDs publish the most articles, what topics do they focus on, and which languages do they appear to use?
+8. Analyze the use of keywords/categories across the corpus. Which major topic groups appear, and how consistently are they assigned across sources?
+9. For a selected breaking-news topic, retrieve articles from at least three sources and compare publication times, headlines, and key facts.
+10. Summarize entertainment and lifestyle news in the corpus. Which celebrities, TV, culture, or lifestyle themes appear across multiple articles?
+11. Compare political news coverage across languages and regions. Which countries or political topics are represented, and what source diversity exists?
+12. Build an event-centered summary for one major topic, such as football, COVID-19, finance, or technology. Decompose the topic into sub-questions, retrieve relevant articles, remove duplicates, and produce a cited multi-source answer.
+
+================================================================================
+TIP FOR PARTICIPANTS
+--------------------
+The multi-document questions are deliberately the hard cases. A naive top-k RAG system may retrieve several articles with similar keywords but miss source diversity, chronology, language variation, or duplicated syndicated coverage. Use your agent to (a) decompose the question into sub-queries, (b) retrieve iteratively across languages and sources, (c) check publication dates and source IDs, (d) group duplicates and near-duplicates, and (e) cite each claim back to the article record it came from.
+================================================================================
