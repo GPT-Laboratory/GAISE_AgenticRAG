@@ -6,6 +6,28 @@ The entire stack is **open-source and runs fully locally** — no API keys, no c
 
 ---
 
+## Table of contents
+
+- [Key idea](#key-idea)
+- [Architecture](#architecture)
+- [Clear separation of layers](#clear-separation-of-layers)
+- [Live agent-flow UI](#live-agent-flow-ui)
+- [Stack (all local, open-source, $0 recurring)](#stack-all-local-open-source-0-recurring)
+- [Data](#data)
+- [Prerequisites — install these first](#prerequisites--install-these-first)
+- [How to run](#how-to-run)
+  - [Already set up? Quick start](#already-set-up-quick-start)
+  - [First-time setup](#first-time-setup)
+- [The tool layer](#the-tool-layer)
+- [Sample questions → how they are answered](#sample-questions--how-they-are-answered)
+- [Verification checklist](#verification-checklist)
+- [Assumptions & limitations](#assumptions--limitations)
+- [Reflection](#reflection)
+- [Project structure](#project-structure)
+- [Contact](#contact)
+
+---
+
 ## Key idea
 
 > The chatbot does not guess. It routes each question to deterministic analytics functions (for numbers) and/or a document index (for definitions and methodology), observes the results, and synthesizes a concise, **cited** answer.
@@ -22,7 +44,13 @@ The request pattern, from question to answer:
   <img src="ui/public/architecture_diagram.png" alt="Architecture diagram" width="460">
 </p>
 
-**Clear separation of layers:**
+---
+
+## Clear separation of layers
+
+<p align="center">
+  <img src="ui/public/separation_of_layers.png" alt="Separation of layers diagram" width="760">
+</p>
 
 
 | Layer             | Responsibility                                             | Files                                         |
@@ -39,6 +67,10 @@ The request pattern, from question to answer:
 ---
 
 ## Live agent-flow UI
+
+<p align="center">
+  <img src="ui/public/live_agent_flow_ui.png" alt="Live agent-flow UI diagram" width="760">
+</p>
 
 The React UI doesn't just show the final answer — it **visualises the agent loop as it runs**. A streaming endpoint (`POST /chat/stream`, Server-Sent Events) instruments the LangGraph machine via `GRAPH.stream(stream_mode="updates")` and emits each step the moment it happens; the front end turns that into two synchronized views:
 
